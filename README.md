@@ -6,7 +6,7 @@ This module retrieves the most recent snapshot of an AWS RDS instance and option
 
 ```terraform
 module "rds_snapshot_and_clone" {
-  source = "./path/to/this/module"
+  source = "Freakisimo/rds-snapshot-clone/aws"
 
   db_instance_identifier = "your-source-rds-instance-identifier"
 
