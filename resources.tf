@@ -14,7 +14,8 @@ resource "aws_db_instance" "new_instance" {
   username                = local.master_username
   password                = local.master_password
   db_subnet_group_name    = var.vpc_name != null ? aws_db_subnet_group.new_subnet_group[0].name : var.db_subnet_group_name
-  vpc_security_group_ids  = var.vpc_security_group_ids
+  vpc_security_group_ids  = [aws_security_group.rds_sg.id]
+  publicly_accessible     = true
   skip_final_snapshot     = var.skip_final_snapshot
 
   performance_insights_enabled          = var.performance_insights_enabled
